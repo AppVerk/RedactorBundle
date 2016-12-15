@@ -1,0 +1,15 @@
+twig:
+    form:
+        resources:
+            - 'CubeRedactorBundle:Redactor:fields.html.twig'
+
+    globals:
+        redactor_settings:
+            lang: 'pl'
+            height: 500
+
+cube_redactor:
+    basic:
+        settings:
+            lang: 'pl'
+            minHeight: 300

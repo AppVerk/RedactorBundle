@@ -1,0 +1,6 @@
+services:
+    cube.redactor_service:
+        class: Cube\RedactorBundle\Service\Redactor
+        public: false
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
