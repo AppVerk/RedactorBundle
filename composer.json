@@ -1,0 +1,20 @@
+{
+    "name": "app-verk/redactor-bundle",
+    "description": "AppVerk redactor bundle",
+    "type": "symfony-bundle",
+    "autoload": {
+        "psr-4": {
+          "AppVerk\\RedactorBundle\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Michał Kurcewicz",
+            "email": "michal.kurcewicz@appverk.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.0"
+    }
+}
