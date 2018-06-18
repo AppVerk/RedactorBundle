@@ -1,8 +1,10 @@
 <?php
-namespace Cube\RedactorBundle\Form\Type;
 
-use Cube\RedactorBundle\Service\Redactor;
+namespace AppVerk\RedactorBundle\Form\Type;
+
+use AppVerk\RedactorBundle\Service\Redactor;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -10,7 +12,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RedactorType extends AbstractType
 {
-
     /**
      * @var Redactor
      */
@@ -43,13 +44,12 @@ class RedactorType extends AbstractType
             'redactor' => false
         ]);
     }
-
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getParent()
     {
-        return 'textarea';
+        return TextareaType::class;
     }
 
     /**

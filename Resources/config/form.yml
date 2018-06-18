@@ -1,6 +1,6 @@
 services:
-    cube.redactor_form_type:
-        class: Cube\RedactorBundle\Form\Type\RedactorType
-        arguments: ['@cube.redactor_service']
+    appverk.redactor_form_type:
+        class: AppVerk\RedactorBundle\Form\Type\RedactorType
+        arguments: ['@appverk.redactor_service']
         tags:
             - { name: form.type, alias: redactor }

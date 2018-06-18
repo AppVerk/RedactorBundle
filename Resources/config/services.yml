@@ -1,6 +1,6 @@
 services:
-    cube.redactor_service:
-        class: Cube\RedactorBundle\Service\Redactor
+    appverk.redactor_service:
+        class: AppVerk\RedactorBundle\Service\Redactor
         public: false
         calls:
             - [ setContainer, [ '@service_container' ] ]

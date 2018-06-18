@@ -1,18 +1,13 @@
 <?php
 
-namespace Cube\RedactorBundle\DependencyInjection;
+namespace AppVerk\RedactorBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-/**
- * This is the class that loads and manages your bundle configuration
- *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
- */
-class CubeRedactorExtension extends Extension
+class RedactorExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -23,20 +18,12 @@ class CubeRedactorExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         foreach ($config as $envName => $envConfig) {
-            foreach (['file', 'image'] as $subKey) {
-                $fileKey = 'upload_' . $subKey;
-                if (!isset($envConfig[$fileKey]['dir'])) {
-                    continue;
-                }
-                $paths = explode('web', $envConfig[$fileKey]['dir']);
-                $envConfig[$fileKey]['web_dir'] = $paths[1];
-            }
             /**
              * Clean empty config arrays
              */
             $cleanArrays = [
                 'upload_image' => ['mimeTypes'],
-                'settings' => ['buttons', 'formattingTags', 'airButtons']
+                'settings'     => ['buttons', 'formattingTags', 'airButtons']
             ];
             foreach ($cleanArrays as $key => $subKeys) {
                 foreach ($subKeys as $subKey) {
@@ -45,9 +32,9 @@ class CubeRedactorExtension extends Extension
                     }
                 }
             }
-
-            $container->setParameter(sprintf('cube_redactor.%s', $envName), $envConfig);
+            $container->setParameter(sprintf('redactor.%s', $envName), $envConfig);
         }
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('form.yml');
         $loader->load('services.yml');

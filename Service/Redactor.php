@@ -1,6 +1,6 @@
 <?php
 
-namespace Cube\RedactorBundle\Service;
+namespace AppVerk\RedactorBundle\Service;
 
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
@@ -11,8 +11,8 @@ class Redactor implements ContainerAwareInterface
 
     public function getWebConfiguration($envName)
     {
-        $settings = array();
-        $config = $this->container->getParameter(sprintf('cube_redactor.%s', $envName));
+        $settings = [];
+        $config = $this->container->getParameter(sprintf('redactor.%s', $envName));
         $settings = array_merge($config['settings'], $settings);
         return $settings;
     }
