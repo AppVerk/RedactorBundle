@@ -1,5 +1,4 @@
 {% block redactor_widget %}
-    {% spaceless %}
         <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
         <script type="text/javascript">
             if (typeof configRedactor == 'undefined') {
@@ -7,5 +6,4 @@
             }
             configRedactor['{{ id }}'] = {{ redactor_config|json_encode|cubeRaw }};
         </script>
-    {% endspaceless %}
 {% endblock redactor_widget %}
